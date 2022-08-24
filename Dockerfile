@@ -22,8 +22,7 @@ SHELL ["conda", "run", "-n", "faceNext", "/bin/bash", "-c"]
 
 RUN conda install -y mamba -n base -c conda-forge
 RUN mamba install -y opencv -c conda-forge
-RUN mamba install -y pytorch==1.3.1 torchvision torchaudio cudatoolkit=11.6 -c pytorch -c conda-forge
-
+RUN pip install torch==1.3.1 torchvision==0.4.2 --extra-index-url https://download.pytorch.org/whl/cu116
 RUN pip install tensorflow mediapipe face_alignment==1.2.0 h5py pybind11 scikit-image jupyter
 
 RUN git clone --recursive https://github.com/abecadel/redner.git
