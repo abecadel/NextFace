@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.7.0-devel-ubuntu18.04
+FROM nvidia/cuda:11.7.0-cudnn8-devel-ubuntu18.04
 WORKDIR /app
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -30,7 +30,3 @@ RUN git clone --recursive https://github.com/abecadel/redner.git
 RUN wget https://github.com/Kitware/CMake/releases/download/v3.24.1/cmake-3.24.1-linux-x86_64.sh
 RUN bash cmake-3.24.1-linux-x86_64.sh --skip-license --prefix=/usr/local
 RUN cd redner && python setup.py install
-
-#RUN git clone --recursive https://github.com/abecadel/NextFace.git
-#RUN cd NextFace && python optimizer.py
-
